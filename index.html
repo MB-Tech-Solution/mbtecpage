@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MB Tech Solution - Colorful & Attractive Offers</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- FontAwesome (Icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Custom Colorful CSS -->
+    <style>
+        /* Body ka background halka blue/grey mix taaki colors chamke */
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f4f8; 
+        }
+        
+        /* ---------------- NAVBAR (Colorful Gradient) ---------------- */
+        .navbar {
+            /* Dark Blue se Light Blue ka gradient */
+            background: linear-gradient(90deg, #0a192f 0%, #172a45 50%, #004b87 100%) !important;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        .navbar-brand, .nav-link {
+            color: #ffffff !important;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .nav-link:hover {
+            color: #00e5ff !important; /* Neon Blue hover */
+        }
+
+        /* Upar ka Call Button - Bright Orange/Red Gradient */
+        .btn-call-header {
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+            color: #fff !important;
+            font-weight: bold;
+            border-radius: 30px;
+            padding: 8px 25px;
+            border: none;
+            box-shadow: 0 4px 15px rgba(255, 75, 43, 0.5);
+            transition: transform 0.3s;
+        }
+        .btn-call-header:hover {
+            transform: scale(1.05);
+        }
+
+        /* ---------------- SLIDING BANNER ---------------- */
+        .carousel-item {
+            height: 75vh;
+            min-height: 450px;
+            background: no-repeat center center scroll;
+            background-size: cover;
+            position: relative;
+        }
+        
+        /* Banner ke upar rangeen overlay (Blue to Purple) */
+        .carousel-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(135deg, rgba(10,25,47,0.8) 0%, rgba(138,35,135,0.6) 100%);
+        }
+
+        .carousel-caption {
+            bottom: 20%;
+            z-index: 2;
+        }
+        .carousel-caption h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            /* Text me gradient color */
+            background: -webkit-linear-gradient(#ffdd00, #ff0055);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+        }
+
+        /* ---------------- PRODUCT CARDS ---------------- */
+        .product-card {
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            background: #fff;
+            transition: all 0.4s ease;
+            position: relative;
+            /* Top par ek rangeen line */
+            border-top: 5px solid #004b87; 
+        }
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,75,135,0.2);
+            border-top: 5px solid #ff0055; /* Hover par color change */
+        }
+        
+        /* Bright Red Price Tag */
+        .price-highlight {
+            font-size: 2.5rem;
+            color: #d90429; /* Ekdum Dark Lal rang */
+            font-weight: 900;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        /* Order Button - Gradient Green to Blue */
+        .btn-order {
+            background: linear-gradient(90deg, #11998e, #38ef7d);
+            color: white;
+            border: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        .btn-order:hover {
+            background: linear-gradient(90deg, #38ef7d, #11998e);
+            color: white;
+        }
+
+        /* ---------------- SPECIAL OFFER BOX ---------------- */
+        /* Ekdum chamkila Yellow-Orange box gifts dikhane ke liye */
+        .offer-box {
+            background: linear-gradient(135deg, #ffe259 0%, #ffa751 100%);
+            border: 3px dashed #d90429;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(255, 167, 81, 0.4);
+        }
+        .icon-colorful {
+            color: #d90429;
+            background: #fff;
+            padding: 15px;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* ---------------- DELIVERY STRIP ---------------- */
+        .delivery-strip {
+            background: linear-gradient(90deg, #ff00cc, #333399);
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        /* ---------------- SERVICES CARDS ---------------- */
+        .service-card-1 {
+            border-left: 6px solid #ff416c;
+            background: linear-gradient(to right, #fff5f7, #ffffff);
+        }
+        .service-card-2 {
+            border-left: 6px solid #11998e;
+            background: linear-gradient(to right, #f4fdf8, #ffffff);
+        }
+
+        /* ---------------- FOOTER ---------------- */
+        .footer-colorful {
+            background: #0a192f;
+            border-top: 5px solid #ffc107;
+            color: #a8b2d1;
+        }
+        .footer-colorful h4, .footer-colorful h5 {
+            color: #64ffda; /* Neon mint color */
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 65px;
+            height: 65px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 35px;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.5);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            animation: bounce-slow 2s infinite;
+        }
+        @keyframes bounce-slow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ================= NAVBAR START ================= -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <!-- Rangeen Laptop Icon -->
+                <i class="fas fa-laptop-code fs-1 me-2" style="color: #64ffda;"></i>
+                <div>
+                    <span class="d-block fs-3 fw-bold mb-0 lh-1">MB TECH SOLUTION</span>
+                    <small style="color: #ffc107; font-size: 0.8rem; letter-spacing: 2px;">Desktop Laptop Sales & Service</small>
+                </div>
+            </a>
+            
+            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#sales">Our Offers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item ms-lg-4 mt-3 mt-lg-0">
+                        <!-- Bright Call Button -->
+                        <a class="btn btn-call-header" href="tel:+917019126805">
+                            <i class="fas fa-phone-volume fa-shake"></i> CALL: 70191 26805
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- ================= NAVBAR END ================= -->
+
+    <!-- ================= SLIDING BANNER ================= -->
+    <header id="home">
+        <div id="mainSlider" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                
+                <!-- Slide 1: Welcome / Main Product -->
+                <div class="carousel-item active" style="background-image: url('https://images.unsplash.com/photo-1593642702821-c823b2816291?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')">
+                    <div class="carousel-overlay"></div>
+                    <div class="carousel-caption">
+                        <h1>Refurbished Laptops & Desktops</h1>
+                        <p class="text-white fs-4 mt-2">Education • Work From Home • Programming</p>
+                        <a href="#sales" class="btn btn-warning btn-lg fw-bold rounded-pill px-5 py-3 mt-4" style="background: #ffdd00; color: #000;">
+                            SEE TODAY'S PRICES
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Slide 2: Doorstep Service -->
+                <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1588702547923-70659a6744c8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')">
+                    <div class="carousel-overlay" style="background: linear-gradient(135deg, rgba(0,75,135,0.8) 0%, rgba(0,0,0,0.7) 100%);"></div>
+                    <div class="carousel-caption">
+                        <h1 style="background: -webkit-linear-gradient(#64ffda, #00b4db); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                            Service at Your Doorstep
+                        </h1>
+                        <p class="text-white fs-3 mt-3">Desktop & Laptop Service just <span class="fw-bold text-danger bg-white px-2 rounded">@ ₹299</span> (Hubli Only)</p>
+                        <a href="#services" class="btn btn-light btn-lg fw-bold rounded-pill px-5 py-3 mt-4 text-primary">
+                            BOOK SERVICE NOW
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            <!-- Slider Controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#mainSlider" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#mainSlider" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ================= SALES & PRODUCTS SECTION ================= -->
+    <section id="sales" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold" style="color: #0a192f; font-size: 2.5rem;">🔥 SUPER SAVER DEALS 🔥</h2>
+                <p class="text-muted fs-5">Commercial Good Condition Systems at Lowest Prices</p>
+            </div>
+            
+            <div class="row g-5 justify-content-center">
+                
+                <!-- LAPTOP CARD (Colorful) -->
+                <div class="col-lg-5 col-md-6">
+                    <div class="product-card p-4 text-center h-100">
+                        <span class="badge bg-danger position-absolute top-0 end-0 m-3 px-3 py-2 fs-6 rounded-pill shadow">HOT SELLER</span>
+                        <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Laptop" class="img-fluid rounded-4 mb-3 shadow-sm" style="height: 220px; object-fit: cover; width: 100%;">
+                        <h3 class="fw-bold" style="color: #004b87;">Premium Laptops</h3>
+                        <p class="text-secondary mb-1">Start from just</p>
+                        <div class="price-highlight mb-4">₹10,999</div>
+                        <a href="https://wa.me/917019126805?text=I%20want%20to%20buy%20a%20laptop%20starting%20at%2010999" target="_blank" class="btn btn-order w-100 rounded-pill py-3 shadow">
+                            <i class="fab fa-whatsapp fa-lg"></i> ENQUIRE NOW
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- DESKTOP CARD (Colorful) -->
+                <div class="col-lg-5 col-md-6">
+                    <div class="product-card p-4 text-center h-100">
+                        <img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Desktop" class="img-fluid rounded-4 mb-3 shadow-sm" style="height: 220px; object-fit: cover; width: 100%;">
+                        <h3 class="fw-bold" style="color: #004b87;">Business Desktops</h3>
+                        <p class="text-secondary mb-1">Start from just</p>
+                        <div class="price-highlight mb-4">₹8,999</div>
+                        <a href="https://wa.me/917019126805?text=I%20want%20to%20buy%20a%20desktop%20starting%20at%208999" target="_blank" class="btn btn-order w-100 rounded-pill py-3 shadow">
+                            <i class="fab fa-whatsapp fa-lg"></i> ENQUIRE NOW
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+
+            <!-- EXCLUSIVE GIFT PACKAGE (Bahut Rangeen) -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="offer-box p-4 p-md-5 text-center">
+                        <h2 class="fw-black text-dark mb-4" style="font-size: 2rem;">
+                            🎉 BUY LAPTOP & GET SPECIAL OFFER FREE! 🎉
+                        </h2>
+                        <div class="row text-dark fw-bold fs-5 g-4 justify-content-center">
+                            <!-- Gift 1 -->
+                            <div class="col-6 col-md-3">
+                                <div class="icon-colorful d-inline-block mb-3">
+                                    <i class="fas fa-briefcase fa-2x"></i>
+                                </div>
+                                <div class="text-uppercase">Laptop Bag</div>
+                            </div>
+                            <!-- Gift 2 -->
+                            <div class="col-6 col-md-3">
+                                <div class="icon-colorful d-inline-block mb-3">
+                                    <i class="fas fa-mouse fa-2x"></i>
+                                </div>
+                                <div class="text-uppercase">Wireless Mouse</div>
+                            </div>
+                            <!-- Gift 3 -->
+                            <div class="col-6 col-md-3">
+                                <div class="icon-colorful d-inline-block mb-3">
+                                    <i class="far fa-square fa-2x"></i>
+                                </div>
+                                <div class="text-uppercase">Mouse Pad</div>
+                            </div>
+                            <!-- Gift 4 -->
+                            <div class="col-6 col-md-3">
+                                <div class="icon-colorful d-inline-block mb-3">
+                                    <i class="fas fa-keyboard fa-2x"></i>
+                                </div>
+                                <div class="text-uppercase">Key Protector</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= COLORFUL DELIVERY BANNER ================= -->
+    <div class="delivery-strip py-4">
+        <div class="container text-center">
+            <h2 class="fw-bold mb-0">
+                <i class="fas fa-truck-fast fa-lg text-warning me-3"></i> 
+                HOME DELIVERY AVAILABLE! 
+                <span class="fs-4 d-block d-md-inline mt-2 mt-md-0 ms-md-2" style="color: #ffdd00;">
+                    (Approx 20km in Hubli & Dharwad within 24 Hrs)
+                </span>
+            </h2>
+        </div>
+    </div>
+
+    <!-- ================= SERVICES SECTION ================= -->
+    <section id="services" class="py-5">
+        <div class="container">
+            <h2 class="fw-bold text-center mb-5" style="color: #0a192f; font-size: 2.5rem;">OUR REPAIR SERVICES</h2>
+            
+            <div class="row g-4">
+                <!-- Doorstep Repair (Card 1) -->
+                <div class="col-md-6">
+                    <div class="card service-card-1 h-100 rounded-4 p-4 shadow-sm">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="bg-white p-3 rounded-circle shadow-sm me-3">
+                                <i class="fas fa-tools fa-2x text-danger"></i>
+                            </div>
+                            <div>
+                                <h3 class="fw-bold mb-0 text-dark">Service at Doorstep</h3>
+                                <span class="badge bg-danger fs-5 mt-2 shadow-sm">Just @ ₹299 (Hubli Only)</span>
+                            </div>
+                        </div>
+                        <ul class="list-unstyled mt-2 fs-5 text-dark" style="line-height: 2;">
+                            <li><i class="fas fa-arrow-alt-circle-right text-danger me-2"></i> OS Installation (Desktop & Laptop)</li>
+                            <li><i class="fas fa-arrow-alt-circle-right text-danger me-2"></i> Hanging Issue Resolution</li>
+                            <li><i class="fas fa-arrow-alt-circle-right text-danger me-2"></i> Desktop & Laptop Not Working</li>
+                            <li><i class="fas fa-arrow-alt-circle-right text-danger me-2"></i> Screen & Keyboard Change</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Remote Support (Card 2) -->
+                <div class="col-md-6">
+                    <div class="card service-card-2 h-100 rounded-4 p-4 shadow-sm">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="bg-white p-3 rounded-circle shadow-sm me-3">
+                                <i class="fas fa-headset fa-2x text-success"></i>
+                            </div>
+                            <div>
+                                <h3 class="fw-bold mb-0 text-dark">Remote Support</h3>
+                                <span class="badge bg-success fs-5 mt-2 shadow-sm">Available on Call just @ ₹199</span>
+                            </div>
+                        </div>
+                        <ul class="list-unstyled mt-2 fs-5 text-dark" style="line-height: 2;">
+                            <li><i class="fas fa-check-square text-success me-2"></i> Software Installation</li>
+                            <li><i class="fas fa-check-square text-success me-2"></i> Drivers Installation</li>
+                            <li><i class="fas fa-check-square text-success me-2"></i> Any Technical Support</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= COLORFUL FOOTER ================= -->
+    <footer class="footer-colorful py-5">
+        <div class="container">
+            <div class="row text-center text-md-start">
+                <div class="col-md-4 mb-4">
+                    <h3 class="fw-bold"><i class="fas fa-laptop-medical text-warning"></i> MB TECH SOLUTION</h3>
+                    <p class="mt-3 text-light">Computer Laptop Sales and Service. Multibrand solutions for all your tech needs.</p>
+                </div>
+                <div class="col-md-4 mb-4 text-center">
+                    <h4 class="mb-4">Contact Information</h4>
+                    <p class="mb-2 fs-5"><i class="fas fa-phone-alt text-warning me-2"></i> +91 70191 26805</p>
+                    <p class="mb-2 fs-5"><i class="fas fa-phone-alt text-warning me-2"></i> +91 90369 67029</p>
+                    <p class="mb-2 fs-5"><i class="fas fa-phone-alt text-warning me-2"></i> +91 81476 08854</p>
+                </div>
+                <div class="col-md-4 mb-4 text-md-end text-center">
+                    <h4 class="mb-4">Reach Us Online</h4>
+                    <p class="mb-2 fs-5"><i class="fas fa-envelope text-warning me-2"></i> support@mbtechsolution.in</p>
+                    <p class="mb-2 fs-5"><i class="fas fa-globe text-warning me-2"></i> www.mbtechsolution.in</p>
+                </div>
+            </div>
+            <hr style="border-color: rgba(255,255,255,0.2);">
+            <div class="text-center mt-3">
+                <small class="text-light">&copy; 2026 MB Tech Solution. All rights reserved.</small>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= FLOATING WHATSAPP ================= -->
+    <!-- Ye green button screen pe jump karta rahega dhyaan kheenchne ke liye -->
+    <a href="https://wa.me/917019126805?text=Hello%20MB%20Tech%20Solution,%20I%20am%20interested%20in%20your%20services!" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Bootstrap JS Script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+</body>
+</html>
